@@ -13,10 +13,10 @@ class MyGame extends FlameGame with TapDetector {
   @override
   Future<void> onLoad() async {
     final animation = await loadSpriteAnimation(
-      'frog_run.png',
+      '_Attack.png',
       SpriteAnimationData.sequenced(
-        amount: 12,
-        textureSize: Vector2.all(36),
+        amount: 4,
+        textureSize: Vector2.all(66),
         stepTime: 0.15,
       ),
     );
@@ -28,7 +28,7 @@ class MyGame extends FlameGame with TapDetector {
         ..position.y = size.y / 2
         ..position.x = size.x / 2
         ..anchor = Anchor.center
-        ..size = Vector2.all(48),
+        ..size = Vector2.all(80),
     );
   }
 
