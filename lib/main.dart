@@ -25,9 +25,9 @@ class _MyGameState extends State<MyGame> {
   // final FlameGame _myGame = router.MyGame();
   // final FlameGame _myGame = flutter_game.MyGame();
   // final FlameGame _myGame = overlays_game.MyGame();
-  // final FlameGame _myGame = sprites_my_game.MyGame();
+  final FlameGame _myGame = sprites_my_game.MyGame();
   // final FlameGame _myGame = parallax_game.MyGame();
-  final FlameGame _myGame = collision_game.MyGame();
+  // final FlameGame _myGame = collision_game.MyGame();
 
   @override
   Widget build(BuildContext context) {

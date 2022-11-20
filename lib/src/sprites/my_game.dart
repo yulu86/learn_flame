@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flame/game.dart';
 import 'package:learning_flame/src/sprites/my_sprites.dart';
+import 'package:learning_flame/src/sprites/my_sprites2.dart';
 
 class MyGame extends FlameGame {
   late Image _ghostImage;
@@ -50,6 +51,7 @@ class MyGame extends FlameGame {
         size: Vector2(120, 80),
         position: Vector2(150, 480),
       ),
+      MySprites2(),
     ]);
     return super.onLoad();
   }
