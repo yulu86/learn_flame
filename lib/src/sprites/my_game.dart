@@ -4,7 +4,7 @@ import 'package:flame/game.dart';
 import 'package:learning_flame/src/sprites/my_sprites.dart';
 import 'package:learning_flame/src/sprites/my_sprites2.dart';
 
-class MyGame extends FlameGame {
+class MyGame extends FlameGame with HasCollisionDetection {
   late Image _ghostImage;
   late Image _attackImage;
   late Image _walkImage;
@@ -51,7 +51,7 @@ class MyGame extends FlameGame {
         size: Vector2(120, 80),
         position: Vector2(150, 480),
       ),
-      MySprites2(),
+      MySprites2(Vector2(150, 540)),
     ]);
     return super.onLoad();
   }

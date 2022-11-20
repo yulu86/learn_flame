@@ -1,10 +1,16 @@
+import 'dart:ui';
+
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/palette.dart';
 import 'package:learning_flame/src/sprites/my_game.dart';
 
 class MySprites2 extends SpriteAnimationComponent with HasGameRef<MyGame> {
+  MySprites2(Vector2 position) : super(position: position);
+
   @override
   Future<void>? onLoad() async {
-    final animation = await gameRef.loadSpriteAnimation(
+    animation = await gameRef.loadSpriteAnimation(
       'ghost_spritesheet.png',
       SpriteAnimationData.sequenced(
         amount: 8,
@@ -13,14 +19,15 @@ class MySprites2 extends SpriteAnimationComponent with HasGameRef<MyGame> {
       ),
     );
 
-    final spriteAnimationComponent = SpriteAnimationComponent(
-      animation: animation,
-      size: Vector2(60, 67.5),
-      position: Vector2(150, 580),
-      // angle: -30,
-    );
+    final hitboxPaint = BasicPalette.white.paint()
+      ..style = PaintingStyle.stroke;
 
-    add(spriteAnimationComponent);
+    final rectangleHitbox = RectangleHitbox.relative(
+      Vector2(150, 540),
+      parentSize: size,
+    )..renderShape = true;
+
+    add(rectangleHitbox);
     return super.onLoad();
   }
 }
