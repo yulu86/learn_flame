@@ -6,9 +6,28 @@ class MyGame extends FlameGame {
   @override
   Future<void>? onLoad() async {
     _loadGhostSprites();
-    _loadAttackSprites();
+    // _loadAttackSprites();
     _loadWalkSprites();
+    _loadFrogs();
     return super.onLoad();
+  }
+
+  void _loadFrogs() async {
+    final spriteSheet = SpriteSheet(
+      image: await images.load('frog_run.png'),
+      srcSize: Vector2(32, 32),
+    );
+
+    var frogRunAnimation =
+        spriteSheet.createAnimation(row: 0, stepTime: 0.1, to: 8);
+
+    final frogRunAnimationComponent = SpriteAnimationComponent(
+      animation: frogRunAnimation,
+      position: Vector2(150, 600),
+      size: Vector2(96, 96),
+    );
+
+    add(frogRunAnimationComponent);
   }
 
   void _loadAttackSprites() async {
